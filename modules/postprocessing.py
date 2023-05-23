@@ -15,7 +15,7 @@ def run_postprocessing(extras_mode, image, image_folder, input_dir, output_dir, 
     image_data = []
     image_names = []
     outputs = []
-
+    extras_mode = 2
     if extras_mode == 1:
         for img in image_folder:
             image = Image.open(img)
@@ -23,7 +23,7 @@ def run_postprocessing(extras_mode, image, image_folder, input_dir, output_dir, 
             image_names.append(os.path.splitext(img.orig_name)[0])
     elif extras_mode == 2:
         assert not shared.cmd_opts.hide_ui_dir_config, '--hide-ui-dir-config option must be disabled'
-        assert input_dir, 'input directory not selected'
+        #assert input_dir, 'input directory not selected'
 
         image_list = shared.listfiles(input_dir)
         for filename in image_list:
@@ -34,7 +34,7 @@ def run_postprocessing(extras_mode, image, image_folder, input_dir, output_dir, 
             image_data.append(image)
             image_names.append(filename)
     else:
-        assert image, 'image not selected'
+        #assert image, 'image not selected'
 
         image_data.append(image)
         image_names.append(None)
